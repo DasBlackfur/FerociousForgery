@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "ferocious-forgery",
+  "version": "${version}",
+  "name": "FerociousForgery",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/blackfur/FerociousForgery"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/FerociousForgery/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "me.blackfur.ferociousforgery.client.FerociousForgeryClient"
+    ],
+    "main": [
+      "me.blackfur.ferociousforgery.FerociousForgery"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
