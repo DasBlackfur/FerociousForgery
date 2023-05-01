@@ -1,0 +1,5 @@
+accessWidener	v1	named
+
+accessible field net/minecraft/client/render/model/ModelLoader ITEM_MODEL_GENERATOR Lnet/minecraft/client/render/model/json/ItemModelGenerator;
+accessible class net/minecraft/client/render/model/ModelLoader$BakerImpl
+accessible method net/minecraft/client/render/model/ModelLoader$BakerImpl <init> (Lnet/minecraft/client/render/model/ModelLoader;Ljava/util/function/BiFunction;Lnet/minecraft/util/Identifier;)V

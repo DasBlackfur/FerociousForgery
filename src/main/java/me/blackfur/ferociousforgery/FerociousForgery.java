@@ -3,9 +3,11 @@ package me.blackfur.ferociousforgery;
 import me.blackfur.ferociousforgery.blocks.FormingAnvil;
 import me.blackfur.ferociousforgery.blocks.entities.FormingAnvilEntity;
 import me.blackfur.ferociousforgery.items.ForgingBlank;
+import me.blackfur.ferociousforgery.items.ForgingBlankRenderer;
 import me.blackfur.ferociousforgery.screens.FormingAnvilScreenHandler;
 import me.blackfur.ferociousforgery.utility.MeltableToolMaterialRegistry;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -48,6 +50,8 @@ public class FerociousForgery implements ModInitializer {
         Registry.register(Registries.ITEM, new Identifier("ferocious-forgery", "forming_anvil"),
                           new BlockItem(FORMING_ANVIL_BLOCK, new FabricItemSettings()));
         Registry.register(Registries.ITEM, new Identifier("ferocious-forgery", "forging_blank"), FORGING_BLANK);
+
+        BuiltinItemRendererRegistry.INSTANCE.register(FORGING_BLANK, new ForgingBlankRenderer());
 
         ItemStack tmpStack = new ItemStack(FORGING_BLANK);
         NbtCompound tmpCompound = tmpStack.getOrCreateNbt();
