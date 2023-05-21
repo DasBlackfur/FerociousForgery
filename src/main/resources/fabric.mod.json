@@ -9,7 +9,6 @@
     "repo": "https://github.com/blackfur/FerociousForgery"
   },
   "license": "All-Rights-Reserved",
-  "icon": "assets/FerociousForgery/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
@@ -19,6 +18,9 @@
       "me.blackfur.ferociousforgery.FerociousForgery"
     ]
   },
+  "mixins": [
+    "ferocious-forgery.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",

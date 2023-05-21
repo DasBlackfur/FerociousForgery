@@ -5,21 +5,17 @@ import me.blackfur.ferociousforgery.utility.AnvilInputSlot;
 import me.blackfur.ferociousforgery.utility.OutputSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.CraftingResultInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
-import net.minecraft.item.AirBlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.*;
 import net.minecraft.screen.slot.Slot;
 
-import java.awt.*;
-
 public class FormingAnvilScreenHandler extends ScreenHandler implements ScreenHandlerListener {
     private final Inventory inventory;
-    PropertyDelegate propertyDelegate;
+    final PropertyDelegate propertyDelegate;
 
 
     //This constructor gets called on the client when the server wants it to open the screenHandler,

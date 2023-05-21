@@ -8,9 +8,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-import java.awt.*;
-import java.util.Objects;
-
 public class FormingAnvilScreen extends HandledScreen<FormingAnvilScreenHandler> {
     private static final Identifier TEXTURE = new Identifier("minecraft", "textures/gui/container/dispenser.png");
 
@@ -40,18 +37,12 @@ public class FormingAnvilScreen extends HandledScreen<FormingAnvilScreenHandler>
         if (handler.propertyDelegate.size() == 258) {
             for (int i = 0; i < 16; i++) {
                 for (int j = 0; j < 16; j++) {
-                    //System.out.println("i: " + i);
-                    //System.out.println("j: "+ j);
-                    //System.out.println("i*16+j+2: " + (i*16+j+2));
                     fill(matrices, i * 3 + x, j * 3 + y, (i + 1) * 3 + x, (j + 1) * 3 + y,
                          getColor(handler.propertyDelegate.get(0), handler.propertyDelegate.get(1),
                                   handler.propertyDelegate.get(i * 16 + j + 2)));
                 }
             }
         }
-        //int xoffset = (width - backgroundWidth) / 2;
-        //int yoffset = (height - backgroundHeight) / 2;
-        //fillGradient(matrices, xoffset + 61, yoffset + 16, xoffset + 115, yoffset + 70, ColorHelper.Argb.getArgb(255, 255, 0, 0), ColorHelper.Argb.getArgb(255, 0, 255, 0));
     }
 
     @Override

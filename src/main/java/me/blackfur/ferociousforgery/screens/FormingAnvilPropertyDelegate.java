@@ -2,8 +2,6 @@ package me.blackfur.ferociousforgery.screens;
 
 import net.minecraft.screen.PropertyDelegate;
 
-import java.util.Arrays;
-
 public class FormingAnvilPropertyDelegate implements PropertyDelegate {
     private final int[] toolInts = new int[258];
 
