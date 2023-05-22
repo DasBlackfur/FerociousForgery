@@ -55,7 +55,7 @@ public class FormingAnvilScreen extends HandledScreen<FormingAnvilScreenHandler>
         return super.mouseClicked(mouseX, mouseY, button);
     }
 
-    public int getColor(int material, int temperature, int height) {
+    public static int getColor(int material, int temperature, int height) {
         return material * height;
     }
 
