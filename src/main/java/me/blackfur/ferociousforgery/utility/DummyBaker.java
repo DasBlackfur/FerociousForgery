@@ -8,7 +8,7 @@ import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 public class DummyBaker implements Baker {
-    UnbakedModel model;
+    final UnbakedModel model;
 
     public DummyBaker(UnbakedModel unbakedModel) {
         model = unbakedModel;

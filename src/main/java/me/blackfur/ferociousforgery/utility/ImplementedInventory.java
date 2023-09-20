@@ -8,7 +8,6 @@ import net.minecraft.util.collection.DefaultedList;
 
 /**
  * A simple {@code Inventory} implementation with only default methods + an item list getter.
- *
  * Originally by Juuz
  */
 public interface ImplementedInventory extends Inventory {

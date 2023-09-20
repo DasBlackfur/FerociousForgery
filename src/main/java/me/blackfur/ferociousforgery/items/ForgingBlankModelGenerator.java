@@ -18,14 +18,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ForgingBlankModelGenerator {
-    public static Map<NbtCompound, BakedModel> MODEL_CACHE = new HashMap<>();
-    public static Map<NbtCompound, Identifier> TEXTURE_CACHE = new HashMap<>();
+    public static final Map<NbtCompound, BakedModel> MODEL_CACHE = new HashMap<>();
+    public static final Map<NbtCompound, Identifier> TEXTURE_CACHE = new HashMap<>();
 
     public static int getColor(int material) {
         return material;
