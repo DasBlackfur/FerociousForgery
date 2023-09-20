@@ -1,6 +1,7 @@
 package me.blackfur.ferociousforgery.screens;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
@@ -16,20 +17,20 @@ public class FormingAnvilScreen extends HandledScreen<FormingAnvilScreenHandler>
     }
 
     @Override
-    protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
+    protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
-        drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
+        context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
     }
 
     @Override
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        renderBackground(matrices);
-        super.render(matrices, mouseX, mouseY, delta);
-        drawMouseoverTooltip(matrices, mouseX, mouseY);
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        renderBackground(context);
+        super.render(context, mouseX, mouseY, delta);
+        drawMouseoverTooltip(context, mouseX, mouseY);
 
         int x = (width - backgroundWidth) / 2 + 64;
         int y = (height - backgroundHeight) / 2 + 16;
@@ -37,7 +38,7 @@ public class FormingAnvilScreen extends HandledScreen<FormingAnvilScreenHandler>
         if (handler.propertyDelegate.size() == 258) {
             for (int i = 0; i < 16; i++) {
                 for (int j = 0; j < 16; j++) {
-                    fill(matrices, i * 3 + x, j * 3 + y, (i + 1) * 3 + x, (j + 1) * 3 + y,
+                    context.fill(i * 3 + x, j * 3 + y, (i + 1) * 3 + x, (j + 1) * 3 + y,
                          getColor(handler.propertyDelegate.get(0), handler.propertyDelegate.get(1),
                                   handler.propertyDelegate.get(i * 16 + j + 2)));
                 }

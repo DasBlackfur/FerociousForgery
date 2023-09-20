@@ -12,21 +12,24 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
-import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import java.awt.*;
 
 public class FerociousForgery implements ModInitializer {
     public static final Block FORMING_ANVIL_BLOCK = new FormingAnvil(
-            FabricBlockSettings.of(Material.METAL).strength(4.0f));
+            FabricBlockSettings.create().strength(4.0f).sounds(BlockSoundGroup.METAL));
     public static final BlockEntityType<FormingAnvilEntity> FORMING_ANVIL_ENTITY = Registry.register(
             Registries.BLOCK_ENTITY_TYPE, new Identifier("ferocious-forgery", "forming_anvil_entity"),
             FabricBlockEntityTypeBuilder.create(FormingAnvilEntity::new, FORMING_ANVIL_BLOCK).build());
@@ -37,9 +40,7 @@ public class FerociousForgery implements ModInitializer {
 
     public static final ToolItem FORGING_BLANK = new ForgingBlank(1, -2.8F, ToolMaterials.WOOD, new Item.Settings());
 
-    public static final ItemGroup FEROCIOUS_FORGERY_GROUP = FabricItemGroup.builder(new Identifier("ferocious-forgery", "main"))
-            .icon(() -> new ItemStack(FORMING_ANVIL_BLOCK))
-            .build();
+    public static final RegistryKey<ItemGroup> FEROCIOUS_FORGERY_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier("ferocious-forgery", "main"));
 
     @Override
     public void onInitialize() {
@@ -48,6 +49,11 @@ public class FerociousForgery implements ModInitializer {
         Registry.register(Registries.ITEM, new Identifier("ferocious-forgery", "forming_anvil"),
                           new BlockItem(FORMING_ANVIL_BLOCK, new FabricItemSettings()));
         Registry.register(Registries.ITEM, new Identifier("ferocious-forgery", "forging_blank"), FORGING_BLANK);
+
+        Registry.register(Registries.ITEM_GROUP, FEROCIOUS_FORGERY_GROUP, FabricItemGroup.builder()
+                .icon(() -> new ItemStack(FORMING_ANVIL_BLOCK))
+                        .displayName(Text.literal("Ferocious Forgery Test"))
+                .build());
 
         ItemStack tmpStack = new ItemStack(FORGING_BLANK);
         NbtCompound tmpCompound = tmpStack.getOrCreateNbt();
